@@ -512,7 +512,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   # Step 1: Density in the range of the prior
   integralEquivalencePrior <- pnorm(options$upperbound, prior.mean, sqrt(prior.variance)) - pnorm(options$lowerbound, prior.mean, sqrt(prior.variance))
-  
+
   errorEquivalencePrior <- 0
 
   integralNonequivalencePrior <- 1 - integralEquivalencePrior
@@ -744,8 +744,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       idxC <- !is.na(dataset[[.v(variable)]])
 
       if (hasGrouping) {
-        group1 <- dataset[idxG1 && idxC, .v(variable)]
-        group2 <- dataset[idxG2 && idxC, .v(variable)]
+        group1 <- dataset[idxG1 & idxC, .v(variable)]
+        group2 <- dataset[idxG2 & idxC, .v(variable)]
         subDataSet <- dataset[idxC, .v(c(variable, grouping))]
       } else {
         # group 1 is empty [numeric(0)]
